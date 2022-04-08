@@ -1,4 +1,4 @@
-## Bite Byte by Bit
+## A Glitch In The Matrix
 
 You can use the [editor on GitHub](https://github.com/a-glitch-in-the-matrix/a-glitch-in-the-matrix.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
