@@ -39,7 +39,7 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    website: 'https://a-glitch-in-the-matrix.com',
+    website: 'https://a-glitch-in-the-matrix.github.io',
     title: 'A Glitch In the Matrix',
     subtitle: 'What\'s past is prologue',
     description: 'Bookmark this to keep an eye on my project updates!',
