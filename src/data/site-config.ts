@@ -53,10 +53,6 @@ const siteConfig: SiteConfig = {
             href: '/'
         },
         {
-            text: 'Blog',
-            href: '/blog'
-        },
-        {
             text: 'Tags',
             href: '/tags'
         }
@@ -94,12 +90,8 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        title: 'Welcome to A Glitch In the Matrix!',
+        title: '',
         text: "",
-        image: {
-            src: '/hello.png',
-            alt: 'Welcome to the matrix!'
-        },
         // actions: [
         //     {
         //         text: 'Get in Touch',
