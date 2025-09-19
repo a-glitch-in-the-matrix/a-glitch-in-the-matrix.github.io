@@ -1,0 +1,62 @@
+---
+const {
+    PUBLIC_GISCUS_REPO,
+    PUBLIC_GISCUS_REPO_ID,
+    PUBLIC_GISCUS_CATEGORY,
+    PUBLIC_GISCUS_CATEGORY_ID,
+    PUBLIC_GISCUS_MAPPING,
+    PUBLIC_GISCUS_STRICT,
+    PUBLIC_GISCUS_REACTIONS_ENABLED,
+    PUBLIC_GISCUS_EMIT_METADATA,
+    PUBLIC_GISCUS_INPUT_POSITION,
+    PUBLIC_GISCUS_THEME,
+    PUBLIC_GISCUS_LANG
+} = import.meta.env;
+
+const config = {
+    repo: PUBLIC_GISCUS_REPO,
+    repoId: PUBLIC_GISCUS_REPO_ID,
+    category: PUBLIC_GISCUS_CATEGORY,
+    categoryId: PUBLIC_GISCUS_CATEGORY_ID,
+    mapping: PUBLIC_GISCUS_MAPPING ?? 'pathname',
+    strict: PUBLIC_GISCUS_STRICT ?? '0',
+    reactionsEnabled: PUBLIC_GISCUS_REACTIONS_ENABLED ?? '1',
+    emitMetadata: PUBLIC_GISCUS_EMIT_METADATA ?? '0',
+    inputPosition: PUBLIC_GISCUS_INPUT_POSITION ?? 'bottom',
+    theme: PUBLIC_GISCUS_THEME ?? 'preferred_color_scheme',
+    lang: PUBLIC_GISCUS_LANG ?? 'en'
+};
+
+const requiredValues = [config.repo, config.repoId, config.category, config.categoryId];
+const isConfigured = requiredValues.every(Boolean);
+---
+
+<section class="mt-16 sm:mt-24" aria-label="Comments">
+    {isConfigured ? (
+        <>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo={config.repo}
+                data-repo-id={config.repoId}
+                data-category={config.category}
+                data-category-id={config.categoryId}
+                data-mapping={config.mapping}
+                data-strict={config.strict}
+                data-reactions-enabled={config.reactionsEnabled}
+                data-emit-metadata={config.emitMetadata}
+                data-input-position={config.inputPosition}
+                data-theme={config.theme}
+                data-lang={config.lang}
+                crossorigin="anonymous"
+                async
+            />
+            <noscript class="block mt-4 text-sm text-main/70">
+                Comments require JavaScript to display. Please enable it to view and participate in the discussion.
+            </noscript>
+        </>
+    ) : (
+        <p class="text-sm italic text-main/70">
+            Comments are disabled. Set the required Giscus environment variables to enable this section.
+        </p>
+    )}
+</section>

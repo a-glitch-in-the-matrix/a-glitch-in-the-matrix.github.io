@@ -60,6 +60,21 @@ The `src/content/` directory contains "collections" of related Markdown and MDX 
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+## Enabling Giscus Comments
+
+- Blog posts render a Giscus discussion thread when the required public environment variables are present.
+- Use https://giscus.app to select the repository/category and copy the values below into a local `.env` file or your hosting provider's environment settings:
+
+```env
+PUBLIC_GISCUS_REPO=owner/repo
+PUBLIC_GISCUS_REPO_ID=repo-id
+PUBLIC_GISCUS_CATEGORY=Announcements
+PUBLIC_GISCUS_CATEGORY_ID=category-id
+```
+
+- Optional variables let you adjust behaviour (fallbacks are predefined): `PUBLIC_GISCUS_MAPPING`, `PUBLIC_GISCUS_STRICT`, `PUBLIC_GISCUS_REACTIONS_ENABLED`, `PUBLIC_GISCUS_EMIT_METADATA`, `PUBLIC_GISCUS_INPUT_POSITION`, `PUBLIC_GISCUS_THEME`, `PUBLIC_GISCUS_LANG`.
+- After setting the values, restart the dev server or redeploy so the new configuration is applied.
+
 ## Astro.js Commands
 
 All commands are run from the root of the project, from a terminal:
