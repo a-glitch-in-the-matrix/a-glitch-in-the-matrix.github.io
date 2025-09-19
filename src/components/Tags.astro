@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../utils/data-utils';
+
+const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+const tags = getAllTags(posts).sort((tagA, tagB) => {
+    const postCountTagA = getPostsByTag(posts, tagA.id).length;
+    const postCountTagB = getPostsByTag(posts, tagB.id).length;
+    return postCountTagB - postCountTagA;
+});
+---
+
+{
+    tags.length > 0 && (
+        <div class="w-full max-w-3xl mx-auto pt-8 pb-6 sm:pt-12 sm:pb-8">
+            <div class="pt-6 border-t border-dashed border-main">
+                <h2 class="mb-4 text-lg font-serif italic sm:mb-6 sm:text-xl">Tags</h2>
+                <div class="flex flex-wrap gap-2 sm:gap-3">
+                    {tags.map((tag) => {
+                        const postCount = getPostsByTag(posts, tag.id).length;
+                        return (
+                            <a
+                                class="inline-block px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200 group"
+                                href={`/tags/${tag.id}`}
+                            >
+                                <span class="font-medium">{tag.name}</span>
+                                <span class="ml-1 text-xs text-gray-500 dark:text-gray-400">({postCount})</span>
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+    )
+}
