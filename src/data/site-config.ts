@@ -40,12 +40,12 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     website: 'https://a-glitch-in-the-matrix.github.io',
-    title: 'A Glitch In the Matrix',
+    title: 'A Glitch in the Matrix',
     subtitle: 'What\'s past is prologue',
     description: 'Bookmark this to keep an eye on my project updates!',
     image: {
         src: '/hero.jpeg',
-        alt: 'A Glitch In the Matrix'
+        alt: 'A Glitch in the Matrix'
     },
     headerNavLinks: [
         {
@@ -96,7 +96,7 @@ const siteConfig: SiteConfig = {
         // ]
     },
     subscribe: {
-        title: 'Subscribe to A Glitch In the Matrix Updates',
+        title: 'Subscribe to A Glitch in the Matrix Updates',
         text: 'Stay updated with the latest web development insights and project updates.',
         formUrl: '#'
     },
